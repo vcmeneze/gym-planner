@@ -1,20 +1,24 @@
 import { buttons } from '../data/exercises';
 
-// 1. Recebemos 'aoClicar' (nome que inventamos agora) dentro das chaves
-export function BotoesExercicios({ addExercicio }: any) { 
+export function BotoesExercicios({ addExercicio, limparTudo, desfazer }: any) { 
     
-    // 2. Faltou o 'return' no seu código! Componente tem que retornar HTML.
+    
     return (
         <div>
+            <h2> Adicionar Exercícios</h2>
             {buttons.map((button, index) => (
                 <button 
                     key={index} 
-                    // 3. Em vez de chamar a função que não existe, chamamos a que recebemos
-                    onClick={() => addExercicio(button)} 
-                >
+                    onClick={() => addExercicio(button)} >
                     {button.nome}
                 </button>
-            ))}
+            ))} <hr />
+            <button style={{ backgroundColor: '#790000', color: 'white', border: 'none', margin: '10px 20px', borderRadius: '50px' }}
+            onClick={limparTudo}>Limpar Treino</button>
+
+            <button style={{ backgroundColor: '#e2d300', color: 'black', border: 'none', margin: '10px 0px', borderRadius: '50px' }}
+             onClick={desfazer}>Desfazer</button>
+            <hr />
         </div>
     )
 }
