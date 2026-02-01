@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Manequim } from './manequim';
 import { BotoesExercicios } from './botoesExercicios';
 import { TreinoMontado } from './treinoMontado';
@@ -12,7 +12,15 @@ function ListaExercicios() {
     }
     return [];
 });
+
+    useEffect(() => {
+        const exerciciosJSON = JSON.stringify(exercicios);
+        localStorage.setItem('exercicios', exerciciosJSON);
+    }, [exercicios]);
+
     const musculosAtivos = exercicios.flatMap(item => item.musculos);
+    const musculosSecundarios = exercicios.flatMap(item => item.musculos_secundarios);
+
 
     const adicionarExercicio = (novoExercicio: any) => {
         const jaExiste = exercicios.some(item => item.nome === novoExercicio.nome)
@@ -20,13 +28,6 @@ function ListaExercicios() {
             setExercicios(estadoAnterior => [...estadoAnterior, novoExercicio]);
         }
     }
-
-    useEffect(() => {
-        const exerciciosJSON = JSON.stringify(exercicios);
-        localStorage.setItem('exercicios', exerciciosJSON);
-    }, [exercicios]);
-
-
     const limparTudo = () => {
         setExercicios([]);      
     }
@@ -38,7 +39,7 @@ function ListaExercicios() {
         <div>
             <BotoesExercicios addExercicio={adicionarExercicio} limparTudo={limparTudo} desfazer={desfazer}/> 
             <TreinoMontado exercicios={exercicios} />         
-            <Manequim musculosAtivos={musculosAtivos} />
+            <Manequim musculosAtivos={musculosAtivos} musculosSecundarios={musculosSecundarios} />
 
         </div>
     )

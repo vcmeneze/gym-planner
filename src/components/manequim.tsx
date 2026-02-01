@@ -1,14 +1,13 @@
-import React from 'react';
-
 interface ManequimProps {
   musculosAtivos: string[];
+  musculosSecundarios: string[];
 }
 
 
 
-export function Manequim({ musculosAtivos }: ManequimProps) {
-  const MUSCULOS_IDS = musculosAtivos.map(id => '#' + id).join(',');
+export function Manequim({ musculosAtivos, musculosSecundarios }: ManequimProps) {
   const seletorCSS = musculosAtivos.length > 0 ? musculosAtivos.map(id => '#' + id).join(',') : null;
+  const seletorCSSSecundario = musculosSecundarios.length > 0 ? musculosSecundarios.map(id => '#' + id).join(',') : null;
 
   return (
     <div className='manequim-container'>
@@ -20,6 +19,9 @@ export function Manequim({ musculosAtivos }: ManequimProps) {
 
          /* cor ativa */
           ${seletorCSS} { fill: #ff0000 !important;} 
+
+         /* cor secundaria */
+          ${seletorCSSSecundario} { fill: #d49797 !important;} 
         `}
       </style>
     
