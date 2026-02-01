@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Manequim } from './manequim';
-import { BotoesExercicios } from './botoesExercicios';
-import { TreinoMontado } from './treinoMontado';
+import { Manequim } from './Manequim';
+import { BotoesExercicios } from './BotoesExercicios';
+import { TreinoMontado } from './TreinoMontado';
 
 function ListaExercicios() {
 
@@ -23,7 +23,7 @@ function ListaExercicios() {
 
 
     const adicionarExercicio = (novoExercicio: any) => {
-        const jaExiste = exercicios.some(item => item.nome === novoExercicio.nome)
+        const jaExiste = exercicios.some(item => item.nome === novoExercicio.nome) // jaExiste será true se algum dos exercicios tiver o nome igual ao do novoExercicio
         if (!jaExiste) {
             setExercicios(estadoAnterior => [...estadoAnterior, novoExercicio]);
         }
@@ -34,11 +34,14 @@ function ListaExercicios() {
     const desfazer = () => {
         setExercicios(estadoAnterior => [...estadoAnterior.slice(0, -1)]);
     }
+    const removerExercicio = (index : number) => {
+        setExercicios(estadoAnterior => estadoAnterior.filter((item, i) => i !== index)); // cada exercicio possui um index, então o filter() irá manter todos os exercicios que o i (index) é diferente do valor do index passado na função
+    }
 
     return (
         <div>
             <BotoesExercicios addExercicio={adicionarExercicio} limparTudo={limparTudo} desfazer={desfazer}/> 
-            <TreinoMontado exercicios={exercicios} />         
+            <TreinoMontado exercicios={exercicios} removerExercicio={removerExercicio} />         
             <Manequim musculosAtivos={musculosAtivos} musculosSecundarios={musculosSecundarios} />
 
         </div>

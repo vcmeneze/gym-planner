@@ -1,5 +1,5 @@
 import './App.css'
-import ListaExercicios from './components/listaExercicios';
+import ListaExercicios from './components/ListaExercicios';
 
 function App() {
 

@@ -17,11 +17,13 @@ export function Manequim({ musculosAtivos, musculosSecundarios }: ManequimProps)
         /* cor padrao */
           path {fill: #787878;}
 
-         /* cor ativa */
+        /* cor secundaria */
+          ${seletorCSSSecundario} { fill: #d49797 !important;} 
+        
+        /* cor ativa */
           ${seletorCSS} { fill: #ff0000 !important;} 
 
-         /* cor secundaria */
-          ${seletorCSSSecundario} { fill: #d49797 !important;} 
+
         `}
       </style>
     
