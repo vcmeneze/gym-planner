@@ -1,9 +1,15 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState } from 'react';
 import { Manequim } from './Manequim';
 import { BotoesExercicios } from './BotoesExercicios';
 import { TreinoMontado } from './TreinoMontado';
 
 function ListaExercicios() {
+
+    const [menuSelect, setMenuSelect] = useState<string>('');
+
+    const menuSelecionado = (categoria: string) => {
+        setMenuSelect(categoria);
+    }
 
     const [exercicios, setExercicios] = useState<any[]>(() => {
     const restaurarExercicios = localStorage.getItem('exercicios');
@@ -40,7 +46,13 @@ function ListaExercicios() {
 
     return (
         <div>
-            <BotoesExercicios addExercicio={adicionarExercicio} limparTudo={limparTudo} desfazer={desfazer}/> 
+            <BotoesExercicios 
+            categoriaAtual={menuSelect} 
+            setCategoria={setMenuSelect}
+            addExercicio={adicionarExercicio} 
+            limparTudo={limparTudo} 
+            desfazer={desfazer}/> 
+
             <TreinoMontado exercicios={exercicios} removerExercicio={removerExercicio} />         
             <Manequim musculosAtivos={musculosAtivos} musculosSecundarios={musculosSecundarios} />
 
