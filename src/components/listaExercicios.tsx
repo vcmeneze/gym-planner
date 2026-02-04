@@ -7,10 +7,6 @@ function ListaExercicios() {
 
     const [menuSelect, setMenuSelect] = useState<string>('');
 
-    const menuSelecionado = (categoria: string) => {
-        setMenuSelect(categoria);
-    }
-
     const [exercicios, setExercicios] = useState<any[]>(() => {
     const restaurarExercicios = localStorage.getItem('exercicios');
     if (restaurarExercicios) {
@@ -41,7 +37,7 @@ function ListaExercicios() {
         setExercicios(estadoAnterior => [...estadoAnterior.slice(0, -1)]);
     }
     const removerExercicio = (index : number) => {
-        setExercicios(estadoAnterior => estadoAnterior.filter((item, i) => i !== index)); // cada exercicio possui um index, então o filter() irá manter todos os exercicios que o i (index) é diferente do valor do index passado na função
+        setExercicios(estadoAnterior => estadoAnterior.filter((_, i) => i !== index)); // cada exercicio possui um index, então o filter() irá manter todos os exercicios que o i (index) é diferente do valor do index passado na função
     }
 
     return (

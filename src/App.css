@@ -6,15 +6,14 @@
     height: auto;
     margin-bottom: 10px;
     cursor: pointer;
+
 }
     
-.ilustracao.selected {
-  border: 3px solid #007bff;
-}
 
 .botao-exercicio {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 10px;
+
 }

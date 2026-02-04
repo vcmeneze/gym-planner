@@ -1,10 +1,19 @@
 import { buttons } from '../data/exercises';
 import {categoriasMusculos } from '../data/categoriasMusculos';
+import { equipamentos } from '../data/equipamentos';
+import { useState } from 'react';
+
 
 export function BotoesExercicios({addExercicio, limparTudo, desfazer, categoriaAtual, setCategoria }: any) { 
+    
+    const [equipSelect, setEquip] = useState<string>('');
 
     const exerciciosFiltrados = categoriaAtual === 'todos' ? buttons : categoriaAtual === '' ? [] 
     : buttons.filter((exercicio) => exercicio.musculos.some(id => categoriaAtual.includes(id))); // vou incluir(includes) esse id na categoriaAtual se algum(some) id fizer parte de exercicio.musculos
+
+    const filtroEquip = equipSelect === 'todos' || equipSelect === '' ? exerciciosFiltrados // se o equipSelect for 'todos' ou indefinido, retorna todos os exercicios 
+    : categoriaAtual === '' ? buttons.filter((exercicio) => exercicio.equipamento.some((equip: string) => equip === equipSelect)) // se a categoriaAtual for indefinida, filtra todos os exercicios pelo equipamento selecionado
+    : exerciciosFiltrados.filter((exercicio) => exercicio.equipamento.some((equip: string) => equip === equipSelect)); // existe categoria entao filtra os exercicios da categoria
 
     return (
         <div>
@@ -23,12 +32,23 @@ export function BotoesExercicios({addExercicio, limparTudo, desfazer, categoriaA
             
             <h2>2º Selecione o equipamento 
                 <p style={{fontSize: "medium", color: "gray", padding: "0px", margin:"0px"}}>(opcional)</p>
-                </h2>
-            <hr />  
+            </h2>
+            
+            <button style={{ marginBottom: '10px', backgroundColor: '#ffffff', color: 'black'}} 
+            onClick={() => setEquip('todos')}>Todos</button> 
+
+            {equipamentos.map((equipamento, index) => (
+                <div style={{display: 'flex'}}>
+                    {equipamento.img_equip && <img onClick={() => setEquip(equipamento.nome)} className='ilustracao' src={equipamento.img_equip} alt={equipamento.nome}></img>}
+                    <button className='' key={index} onClick={() => setEquip(equipamento.nome)}>
+                        {equipamento.nome}
+                    </button>
+                </div>
+            ))}<hr />  
 
             <h2>3º Adicione Exercícios</h2>
-            {exerciciosFiltrados.map((exercicio, index) => (
-                <div style={{display: 'flex'}}>
+            {filtroEquip.map((exercicio, index) => (
+                <div style={{display: 'flex' }}>
                     {exercicio.img && <img onClick={() => addExercicio(exercicio)} 
                     className='ilustracao' src={exercicio.img} alt={exercicio.nome} />}
                     <button
