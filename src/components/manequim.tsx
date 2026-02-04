@@ -319,6 +319,7 @@ export function Manequim({ musculosAtivos, musculosSecundarios }: ManequimProps)
             />
       </g>
     </svg>
+    
   </div>
   );
 }

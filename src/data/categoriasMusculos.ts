@@ -5,6 +5,9 @@ export const categoriasMusculos = [{
     categoria: 'Tríceps',
     musculos: ['cab_longa_triceps_esq', 'cab_lat_triceps_esq', 'cab_med_triceps_esq', 'cab_longa_triceps_dir', 'cab_lat_triceps_dir', 'cab_med_triceps_dir']
 }, {
+    categoria: 'Antebraço',
+    musculos: ['braquioradial_esq', 'braquioradial_dir'],
+    }, {
     categoria: 'Peito',
     musculos: ['peitoral_superior_esq', 'peitoral_superior_dir', 'peitoral_medial_esq', 'peitoral_medial_dir', 'peitoral_inferior_esq', 'peitoral_inferior_dir']
 }, {
