@@ -47,18 +47,21 @@ export function BotoesExercicios({addExercicio, limparTudo, desfazer, categoriaA
             ))}<hr />  
 
             <h2>3º Adicione Exercícios</h2>
-            {filtroEquip.map((exercicio, index) => (
-                <div style={{display: 'flex' }}>
-                    {exercicio.img && <img onClick={() => addExercicio(exercicio)} 
-                    className='ilustracao' src={exercicio.img} alt={exercicio.nome} />}
+            {filtroEquip.map((exercicio, index) => {
+                const exercicioImg = exercicio.img[equipSelect] || exercicio.img.default;
+                
+                return (               
+                    <div key={index} style={{display: 'flex' }}>
+                    {exercicioImg && <img onClick={() => addExercicio(exercicio)} 
+                    className='ilustracao' src={exercicioImg} alt={exercicio.nome} />}
                     <button
                         className='botao-exercicio'
-                        key={index}
+                        
                         onClick={() => addExercicio(exercicio)}>
                         {exercicio.nome}
                     </button>
                 </div>
-            ))}
+            )})}
             <hr />
 
             <button style={{ backgroundColor: '#790000', color: 'white', border: 'none', margin: '10px 20px', borderRadius: '50px' }}
