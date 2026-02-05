@@ -23,6 +23,7 @@ src/
 ├── data/            # "Banco de dados" local (Lista de exercícios e categorias)
 ├── App.tsx          # Componente Pai (Gerenciamento de Estado Global)
 └── ...
+```
 
 ## 🤓 Conceitos Aplicados
 
