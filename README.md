@@ -31,4 +31,5 @@ src/
 - **Renderização Condicional:** - Uso de operadores lógicos (&& e ternários) para exibir elementos dinâmicos.
 - **Manipulação de Objetos:** - Acesso dinâmico a propriedades de objetos (Index Signature).
 
- 📱 [Confira](https://luxury-crumble-bf9790.netlify.app/)
+## 📱 Confira
+ <https://luxury-crumble-bf9790.netlify.app/>
