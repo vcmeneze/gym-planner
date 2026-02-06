@@ -36,4 +36,4 @@ src/
 - **Manipulação de Objetos:** - Acesso dinâmico a propriedades de objetos (Index Signature).
 
 ## 📱 Confira
- <https://luxury-crumble-bf9790.netlify.app/>
+ <https://mellifluous-croquembouche-cd0666.netlify.app/>
