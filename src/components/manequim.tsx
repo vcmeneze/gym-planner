@@ -10,7 +10,7 @@ export function Manequim({ musculosAtivos, musculosSecundarios }: ManequimProps)
   const seletorCSSSecundario = musculosSecundarios.length > 0 ? musculosSecundarios.map(id => '#' + id).join(',') : null;
 
   return (
-    <div className='manequim-container'>
+    <div className={`grid bg-zinc-900/80 p-0 ml-8 mr-8 mt-3 mb-4 border-2 border-zinc-700 rounded-3xl justify-center items-center gap-4`}>
       <style>
         
         path {`
@@ -318,8 +318,16 @@ export function Manequim({ musculosAtivos, musculosSecundarios }: ManequimProps)
         d="m 247.5625,253.8125 3.0625,13.8125 0.125,5.8125 -1.5,3.375 3.5,-1.4375 3.1875,1.1875 c 0,0 2,2.5625 2.125,3.1875 0.125,0.625 1.0625,3.5625 1.0625,3.1875 0,-0.375 -1.0625,-10.1875 -1.0625,-10.1875 0,0 1.375,-5.625 1.375,-6 0,-0.375 2.6875,-10.125 2.6875,-10.125 l 1.9375,-6.25 0.8125,-2.5625 -0.125,-2.4375 -1.375,2 -1.625,2.4375 -1.1875,4.9375 -1.5625,5.5625 2.25,-11.1875 -0.3125,-0.4375 -1.375,0.625 -2.5625,0.5 -1.1875,0.0625 c 0,0 -1.4375,2.25 -1.4375,2.625 0,0.375 -2.0625,2 -2.0625,2 l -1.6875,0.375 -1.6875,-0.5625 -1,-0.9375 z"
             />
       </g>
-    </svg>
-    
+    </svg> 
+    <div className="flex items-center justify-center gap-2 m-4 text-xs text-muted-foreground">
+        <span>Músculo de apoio</span>
+        <div className="flex gap-0.5">
+        <div className="w-6 h-3 rounded-sm" style={{ backgroundColor: '#d49797' }} />
+        <div className="w-6 h-3 rounded-sm" style={{ backgroundColor: '#ff0000' }} />
+        </div>
+        <span>Musculo Trabalhado</span>
+    </div>
+
   </div>
   );
 }

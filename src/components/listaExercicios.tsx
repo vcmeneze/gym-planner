@@ -46,10 +46,19 @@ function ListaExercicios() {
             categoriaAtual={menuSelect} 
             setCategoria={setMenuSelect}
             addExercicio={adicionarExercicio} 
+            />  
+            <TreinoMontado exercicios={exercicios} removerExercicio={removerExercicio}
             limparTudo={limparTudo} 
-            desfazer={desfazer}/> 
-
-            <TreinoMontado exercicios={exercicios} removerExercicio={removerExercicio} />         
+            desfazer={desfazer}
+            />
+            <div className="text-center p-0 mt-6">
+              <h2 className="text-m font-medium text-zinc-300 uppercase tracking-wider mb-1">
+                Visualização Muscular
+              </h2>
+              <p className="text-xs text-zinc-400 opacity-70">
+                Resumo do treino
+              </p>
+            </div>        
             <Manequim musculosAtivos={musculosAtivos} musculosSecundarios={musculosSecundarios} />
 
         </div>
