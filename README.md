@@ -39,4 +39,4 @@ src/
 ## 📱 Confira
  <https://glistening-dieffenbachia-1d4b6e.netlify.app/>
 
- <img src="/assets/demo.gif">
+![Demonstração do App](./assets/demo.gif)
