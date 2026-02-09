@@ -37,4 +37,5 @@ src/
 - **Manipulação de Objetos:** - Acesso dinâmico a propriedades de objetos (Index Signature).
 
 ## 📱 Confira
+    <img src="/assets/img/arquivo.gif">
  <https://glistening-dieffenbachia-1d4b6e.netlify.app/>
