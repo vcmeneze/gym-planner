@@ -11,21 +11,33 @@ export function Manequim({ musculosAtivos, musculosSecundarios }: ManequimProps)
 
   return (
     <div className={`grid bg-zinc-900/80 p-0 ml-8 mr-8 mt-3 mb-4 border-2 border-zinc-700 rounded-3xl justify-center items-center gap-4`}>
-      <style>
-        
-        path {`
+        <style>
+        {`
+        @keyframes pulsar {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+
         /* cor padrao */
-          path {fill: #787878;}
+        path { 
+            fill: #787878; 
+            transition: fill 0.2s; /* Deixa a troca de cor suave */
+        }
 
         /* cor secundaria */
-          ${seletorCSSSecundario} { fill: #d49797 !important;} 
-        
-        /* cor ativa */
-          ${seletorCSS} { fill: #ff0000 !important;} 
+        ${seletorCSSSecundario} { 
+            fill: #d49797 !important;
 
+        } 
 
+        /* cor ativa (SELECIONADO) */
+        ${seletorCSS} { 
+            fill: #ff0000 !important;
+            /* 2. Aplicamos a animação aqui */
+            animation: pulsar 1.75s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
         `}
-      </style>
+        </style>
     
     <svg width="320" height="320" version="1.1" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
       <g fill="#787878">

@@ -13,7 +13,7 @@ function App() {
             <Dumbbell className="w-6 h-6 text-red-500" />
             </div>
             <h1 className="text-lg font-bold flex items-center gap-2">Gym Planner <Flame className="w-4 h-4 text-red-500 animate-pulse" /></h1>
-            <p className="text-[10px] text-zinc-400 uppercase tracking-wider">Planejador de Treinos v2.0</p>
+            <p className="text-[10px] text-red-300 uppercase tracking-wider">Planejador de Treinos v2.0</p>
           </div>
         </div>
         </header>

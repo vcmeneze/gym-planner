@@ -33,15 +33,17 @@ export function BotoesExercicios({addExercicio, categoriaAtual, setCategoria }: 
                         onClick={() => setCategoria(musculo.musculos)} > 
                         {musculo.categoria}
                     </button> 
+                    
                 ))} 
+                <button className={`${categoriaAtual === 'todos' ?  
+                'px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ease-out flex items-center gap-2 hover:border-red-700 bg-red-700 text-secondary-foreground shadow-glow scale-105' 
+                : 'bg-slate-50 text-primary-foreground px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ease-out flex items-center gap-2 hover:border-red-700'}
+                `}
+                onClick={() => setCategoria('todos')}>Todos
+                </button> 
             </div>
 
-            <button className={`${categoriaAtual === 'todos' ?  
-            'px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ease-out flex items-center gap-2 hover:border-red-700 bg-red-700 text-secondary-foreground shadow-glow scale-105' 
-            : 'bg-slate-50 text-primary-foreground px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ease-out flex items-center gap-2 hover:border-red-700'}
-            `}
-            onClick={() => setCategoria('todos')}>Todos
-            </button> 
+
             <hr className='border-zinc-700' />  
             
             <div className="space-y-3">
@@ -49,25 +51,33 @@ export function BotoesExercicios({addExercicio, categoriaAtual, setCategoria }: 
                     2. Equipamento <span className="text-xs opacity-60">(opcional)</span>
                 </h2>
 
-                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
+                <div className="flex flex-wrap gap-2 pb-2">
                     {equipamentos.map((equipamento, index) => (
-                        <div key={index} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px' }}>
-                            {equipamento.img_equip && <img onClick={() => setEquip(equipamento.nome)} className='ilustracao' src={equipamento.img_equip} alt={equipamento.nome}></img>}
-                            <button className={` font-medium text-m transition-all duration-200 ease-out
-                            flex-shr className='border-zinc-700'ink-0 flex flex-col items-center gap-2
+                        <div key={index} className="flex flex-col items-center gap-2 flex-1 min-w-[80px] max-w-[140px]">
+                            {equipamento.img_equip && <img onClick={() => setEquip(equipamento.nome)} className='h-[90px] object-cover m-1 rounded-3xl cursor-pointer hover:opacity-80 transition-opacity' src={equipamento.img_equip} alt={equipamento.nome}></img>}
+                            <button className={` font-medium text-m transition-all duration-200 ease-out m-1
+                            border-zinc-700 flex flex-col items-center gap-2
                             p-3 rounded-xl min-w-[80px]
-                            transition-all duration-200 ease-out ${equipSelect === equipamento.nome ? 'border-red-700 bg-red-700/50 text-secondary-foreground shadow-glow scale-110' : 'bg-zinc-800 text-secondary-foreground hover:bg-secondary/25 hover:scale-102'}
+                            transition-all duration-200 ease-out ${equipSelect === equipamento.nome ? 'border-red-700 bg-red-700/80 text-secondary-foreground shadow-glow scale-110' : 'bg-zinc-800 text-secondary-foreground hover:bg-secondary/25 hover:scale-102'}
                             `}
                 key={index} onClick={() => setEquip(equipamento.nome)}>
                                 {equipamento.nome}
                             </button>
                         </div>
                     ))}  
-                    <button className={`${equipSelect === 'todos' ?  
-                    'text-xl px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ease-out flex items-center gap-2 hover:border-red-700 bg-red-700 text-secondary-foreground shadow-glow scale-100' 
-                    : 'text-m bg-zinc-800 text-secondary-foreground px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ease-out flex items-center gap-2 hover:border-red-700'}
-                    `} 
-                    onClick={() => setEquip('todos')}>Todos</button> 
+                    <div className="flex flex-col items-center justify-end flex-1 min-w-[200px]">
+                        <button 
+                            className={`
+                                w-[200px] h-[50px] min-h-[50px] px-3 py-2 rounded-xl text-sm font-medium 
+                                flex items-center justify-center gap-2 border transition-all duration-200 mt-1
+                                ${equipSelect === 'todos' 
+                                    ? 'border-red-700 bg-red-700 text-white shadow-glow scale-105' 
+                                    : 'border-zinc-700 bg-slate-50 text-primary-foreground hover:bg-zinc-700 hover:text-slate-50'
+                                }
+                            `} 
+                            onClick={() => setEquip('todos')}> Todos
+                        </button> 
+                    </div>
                 </div> <hr className='border-zinc-700' />
 
             </div>
@@ -92,7 +102,7 @@ export function BotoesExercicios({addExercicio, categoriaAtual, setCategoria }: 
 
                             <div className="relative rounded-lg bg-muted/50 flex-shrink-0">
                                 {exercicioImg && <img 
-                                className="w-32 h-auto rounded-xl cursor-pointer mb-2.5 active:scale-150 transition-transform duration-200 ease-out hover:scale-125" 
+                                className="w-32 h-auto rounded-xl cursor-pointer mb-2.5 active:scale-150 transition-transform duration-200 ease-out hover:scale-150" 
                                 src={exercicioImg} 
                                 alt={exercicio.nome.toString()} 
                                 />}

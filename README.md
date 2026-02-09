@@ -13,6 +13,7 @@
 ## 🛠️ Tecnologias Utilizadas
 
 - **React** (Vite) - Biblioteca para construção da interface.
+- **Tailwind** - Framework CSS para estilização.
 - **TypeScript** - Para tipagem estática e segurança do código.
 - **SVG Manipulável** - Para a lógica do manequim muscular.
 
@@ -36,4 +37,4 @@ src/
 - **Manipulação de Objetos:** - Acesso dinâmico a propriedades de objetos (Index Signature).
 
 ## 📱 Confira
- <https://mellifluous-croquembouche-cd0666.netlify.app/>
+ <https://glistening-dieffenbachia-1d4b6e.netlify.app/>
